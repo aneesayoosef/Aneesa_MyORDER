@@ -16,6 +16,7 @@
 		AB35CC51265323D600E3043D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB35CC4F265323D600E3043D /* LaunchScreen.storyboard */; };
 		AB35CC5C265323D600E3043D /* Aneesa_MyORDERTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35CC5B265323D600E3043D /* Aneesa_MyORDERTests.swift */; };
 		AB35CC67265323D600E3043D /* Aneesa_MyORDERUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35CC66265323D600E3043D /* Aneesa_MyORDERUITests.swift */; };
+		AB35CC782653260E00E3043D /* MyOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB35CC772653260E00E3043D /* MyOrderTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		AB35CC62265323D600E3043D /* Aneesa_MyORDERUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aneesa_MyORDERUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB35CC66265323D600E3043D /* Aneesa_MyORDERUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aneesa_MyORDERUITests.swift; sourceTree = "<group>"; };
 		AB35CC68265323D600E3043D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB35CC772653260E00E3043D /* MyOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				AB35CC43265323D400E3043D /* SceneDelegate.swift */,
 				AB35CC45265323D400E3043D /* ViewController.swift */,
 				AB35CC47265323D400E3043D /* Main.storyboard */,
+				AB35CC772653260E00E3043D /* MyOrderTableViewController.swift */,
 				AB35CC4D265323D600E3043D /* Assets.xcassets */,
 				AB35CC4F265323D600E3043D /* LaunchScreen.storyboard */,
 				AB35CC52265323D600E3043D /* Info.plist */,
@@ -265,6 +268,7 @@
 				AB35CC4C265323D400E3043D /* Aneesa_MyORDER.xcdatamodeld in Sources */,
 				AB35CC42265323D400E3043D /* AppDelegate.swift in Sources */,
 				AB35CC44265323D400E3043D /* SceneDelegate.swift in Sources */,
+				AB35CC782653260E00E3043D /* MyOrderTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
