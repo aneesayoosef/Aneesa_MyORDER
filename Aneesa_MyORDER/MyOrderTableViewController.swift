@@ -8,9 +8,19 @@
 import UIKit
 
 class MyOrderTableViewController: UITableViewController {
+    
+    private var coffeList : [Coffee] = [Coffee]()
+    private let dbHelper = CoreDBHelper.getInstance()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.rowHeight = 70
+        
+        
+        fetchAllTodos()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -18,28 +28,46 @@ class MyOrderTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    private func fetchAllTodos(){
+            if (self.dbHelper.getAllCoffees() != nil){
+                self.coffeList = self.dbHelper.getAllCoffees()!
+                self.tableView.reloadData()
+            }else{
+                print(#function, "No data received from database")
+            }
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return coffeList.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CoffeeCell", for: indexPath) as! CoffeeCell
 
-        // Configure the cell...
+                // Configure the cell...
+                
+                if indexPath.row < coffeList.count{
+                    
+                    let currentCoffee = self.coffeList[indexPath.row]
+                    
+                    cell.coffeSize.text = currentCoffee.coffeeSize
+                    cell.coffeQuantity.text = String(currentCoffee.quantity)                  
+                    
+                }
 
-        return cell
+                return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

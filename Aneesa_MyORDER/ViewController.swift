@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController ,UIPickerViewDataSource, UIPickerViewDelegate{
-    
+    private let dbHelper = CoreDBHelper.getInstance()
     
     @IBOutlet weak var numberOfCoffee: UITextField!
     
@@ -60,14 +60,20 @@ class ViewController: UIViewController ,UIPickerViewDataSource, UIPickerViewDele
     
     @IBAction func confirmOrderPressed(_ sender: Any) {
         
-        let numOfCoffee = numberOfCoffee.text
+        var numOfCoffee_ = 0
+        if let numOfCoffee = numberOfCoffee.text
+        {
+            numOfCoffee_ = Int(numOfCoffee) ?? 0
+        }
         
         let coffeeType = typeSelected
         let coffeSize = sizeSelected
         
+        dbHelper.insertCoffee(type: coffeeType, size: coffeSize, q: numOfCoffee_)
+        
         print(coffeSize)
         print(coffeeType)
-        print(numOfCoffee)
+        print(numOfCoffee_)
         
     }
     
@@ -80,8 +86,21 @@ class ViewController: UIViewController ,UIPickerViewDataSource, UIPickerViewDele
         sizeSelected = arrayOfSizes[0]
         
         typePicker.delegate?.pickerView?(typePicker, didSelectRow: 0, inComponent: 0)
+        
+        let btnAddTask = UIBarButtonItem(title: "View Orders", style: .plain, target: self, action: #selector(addNewTask))
+        
+        self.navigationItem.setRightBarButton(btnAddTask, animated: true)
         // Do any additional setup after loading the view.
     }
+    
+    @objc
+        func addNewTask() {
+            //ask for title and detail of the task
+           print("pressed")
+            let vc = MyOrderTableViewController()
+            navigationController?.show(vc, sender: nil)
+            //add to the list of tasks
+        }
 
 
 }
